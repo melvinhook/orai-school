@@ -1,0 +1,14 @@
+body {
+  overflow-x: hidden;
+}
+
+.hoverss:hover{
+    background-color: #3791E7; 
+    color: white; 
+    transition: background-color 0.3s ease, transform 0.3s ease;
+} 
+.bottoms:hover{
+  background-color: white; 
+  color: #3791E7; 
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}

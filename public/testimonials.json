@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Anzu Kadotani",
+        "role": "Student Council Presiden",
+        "desc": "At Ōarai Girls Academy, I’ve learned that even the smallest school can achieve the greatest victories if we stick together. Sensha-dō isn’t just about tanks—it’s about strategy, trust, and enjoying the ride (and sometimes snacks along the way!). Being here taught me to think on my feet, value my friends, and laugh even when things get tough. Ōarai gave me confidence I never thought I had—and a team I’ll never forget."
+    }, 
+    {
+        "id":2, 
+        "name":"Azusa Sawa", 
+        "role":"Commander Of Rabbit Team (M3-Lee)", 
+        "desc":"I used to freeze up in the commander’s seat. Now I breathe, trust my team, and advance. That’s Ōarai spirit!" 
+    }, 
+    { 
+        "id":3, 
+        "name":"Mako Reizei", 
+        "role":"Driver, Anglerfish Team (Pz.IV)", 
+        "desc":"The card div works. It does what it's supposed to. Now if you'll excuse me, I need to get back to my nap"
+    }
+]

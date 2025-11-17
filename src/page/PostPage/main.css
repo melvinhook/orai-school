@@ -1,0 +1,4 @@
+.lovess:hover{
+    color:rgb(87, 90, 255) ;
+    transition: color 0.3s ease, transform 0.3s ease;
+}

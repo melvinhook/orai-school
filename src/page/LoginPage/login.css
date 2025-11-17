@@ -1,0 +1,4 @@
+.hoverz:hover{
+    background-color: oklch(70.7% 0.165 254.624); 
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
