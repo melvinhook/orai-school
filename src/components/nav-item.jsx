@@ -1,14 +1,14 @@
 import { useSpring, animated } from "@react-spring/web"
 import { useEffect, useState } from "react" 
 import { pageController } from "../store/pageController"
-export default function Navitem({ children, hovered, sethovered }) {  
+export default function Navitem({ children, hovered, sethovered, slug }) {  
     const {selected} = pageController()
     const [hover, sethover] = useState(false)
     const underline = useSpring({
         to: { width: hover ? '100%' : selected==children? '100%': '0%', opacity: hover ? 1 : selected==children? 1: 0 }
     }) 
     function navigate(){ 
-        window.location.href = `/${children}`;
+        window.location.href = `/${slug}`;
     }
     useEffect(() => {
         sethover(children === hovered);

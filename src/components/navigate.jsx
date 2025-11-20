@@ -49,11 +49,11 @@ export default function Navigate({ role }) {
                 <animated.div style={role === "main" ? navbar : navbaridle} className={`w-full shadow-lg flex flex-row justify-between xl:p-5 lg:p-5 md:p-7`}>
                     <animated.img style={role === "main" ? logo : {}} src={Logo} alt="" className="lg:h-15 md:h-13 xl:h-20"/>
                     <animated.div style={role === "main" ? navitem : {}} className='flex flex-row gap-4 lg:mt-2'>
-                        <Navitem hovered={hovered} sethovered={sethovered}>Home</Navitem>
-                        <Navitem hovered={hovered} sethovered={sethovered}>Our Posts</Navitem>
-                        <Navitem hovered={hovered} sethovered={sethovered}>Media</Navitem>
-                        <Navitem hovered={hovered} sethovered={sethovered}>Events</Navitem>
-                        <Navitem hovered={hovered} sethovered={sethovered}>Submission</Navitem>
+                        <Navitem hovered={hovered} sethovered={sethovered} slug={''}>Home</Navitem>
+                        <Navitem hovered={hovered} sethovered={sethovered} slug={'Our-Posts'}>Our Posts</Navitem>
+                        <Navitem hovered={hovered} sethovered={sethovered} slug={'Media'}>Media</Navitem>
+                        <Navitem hovered={hovered} sethovered={sethovered} slug={'Events'}>Events</Navitem>
+                        <Navitem hovered={hovered} sethovered={sethovered} slug={'Submission'}>Submission</Navitem>
                     </animated.div>
                     <animated.div style={role === "main" ? user : {}} className='flex justify-center items-center p-5 xl:text-[130%] md:text-[100%]'>
                         {data ? (
