@@ -12,7 +12,7 @@ export const postApi = create((set, get) => ({
     postcomment: async (post_id, user_id) => { 
         set({commentIsLoading: true})
         try { 
-            const res = await axios.post(`http://oarai-school-backend-production-513d.up.railway.app/comment`, {
+            const res = await axios.post(`https://oarai-school-backend-production-513d.up.railway.app/comment`, {
                 content: get().content,
                 user_id,
                 post_id,
@@ -30,7 +30,7 @@ export const postApi = create((set, get) => ({
         const { setReplyIsSent,  setSelectedIsReply } = pageController.getState();
         setReplyIsSent(true)
         try { 
-            const res = await axios.post(`http://oarai-school-backend-production-513d.up.railway.app/reply`, {
+            const res = await axios.post(`https://oarai-school-backend-production-513d.up.railway.app/reply`, {
                 content: get().replyContent,
                 user_id,
                 comment_id,
@@ -48,7 +48,7 @@ export const postApi = create((set, get) => ({
     },
     postlikes: async (post_id,user_id) => { 
         try {
-          const res = await axios.post("http://oarai-school-backend-production-513d.up.railway.app/postlikes",{
+          const res = await axios.post("https://oarai-school-backend-production-513d.up.railway.app/postlikes",{
              post_id, user_id
           })  
           console.log("✅ Post Like Success:", res.data) 
@@ -59,7 +59,7 @@ export const postApi = create((set, get) => ({
     } ,
     commentlikes: async (comment_id, user_id) => {
         try{
-            const res = await axios.post("http://oarai-school-backend-production-513d.up.railway.app/commentlikes",{
+            const res = await axios.post("https://oarai-school-backend-production-513d.up.railway.app/commentlikes",{
                 comment_id, user_id
             }) 
             console.log("✅ Comment Like Success:", res.data) 
@@ -70,7 +70,7 @@ export const postApi = create((set, get) => ({
     },
     replylikes: async (reply_id, user_id) => {
         try{
-            const res = await axios.post("http://oarai-school-backend-production-513d.up.railway.app/replylikes",{
+            const res = await axios.post("https://oarai-school-backend-production-513d.up.railway.app/replylikes",{
                 reply_id, user_id
             }) 
             console.log("✅ reply Like Success:") 
@@ -81,7 +81,7 @@ export const postApi = create((set, get) => ({
     }, 
     posttest: async () => {
         try {
-            const res = await axios.get("http://oarai-school-backend-production-513d.up.railway.app/comment/1");
+            const res = await axios.get("https://oarai-school-backend-production-513d.up.railway.app/comment/1");
             console.log("✅ Post test fetched:", res);
             const dataArray = Array.isArray(res.data) ? res.data : [res.data];
             return dataArray;
@@ -91,7 +91,7 @@ export const postApi = create((set, get) => ({
     },
     getcomment: async () => {
         try{
-            const res = await axios.get(`http://oarai-school-backend-production-513d.up.railway.app/comment/1`)  
+            const res = await axios.get(`https://oarai-school-backend-production-513d.up.railway.app/comment/1`)  
             console.log("this is data ==>",res.data) 
             return res.data
         }catch (error) {
