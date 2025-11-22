@@ -10,7 +10,7 @@ export const useApi = create((set, get) => ({
         console.error("No token found in localStorage");
         return null;
       }
-      const res = await fetch("http://127.0.0.1:8000/users/get_current_user", {
+      const res = await fetch("https://oarai-school-backend-production-513d.up.railway.app/get_current_user", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -33,7 +33,7 @@ export const useApi = create((set, get) => ({
   },
   posttest: async (contents) => {
     try {
-      response = await axios.post("http://127.0.0.1:8000/test", {
+      response = await axios.post("http://oarai-school-backend-production-513d.up.railway.app/test", {
         content: contents
       })
     } catch (error) {
@@ -43,7 +43,7 @@ export const useApi = create((set, get) => ({
   },
   getpost: async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:8000/post/1")
+      const response = await axios.get("http://oarai-school-backend-production-513d.up.railway.app/post/1")
       console.log(response.data)
       postApi.getState().setId(response.data.id);
       console.log("This is the id", postApi.getState().id)
@@ -68,7 +68,7 @@ export const useApi = create((set, get) => ({
         const formData = new URLSearchParams()
         formData.append("username", username)
         formData.append("password", password)
-        const res = await axios.post("http://127.0.0.1:8000/jwtlogin/", formData, {
+        const res = await axios.post("http://oarai-school-backend-production-513d.up.railway.app/jwtlogin/", formData, {
           headers: { "Content-Type": "application/x-www-form-urlencoded" }
         })
         set({ isloading: false })
@@ -118,7 +118,7 @@ export const useApi = create((set, get) => ({
           formData.append("file", get().profileImage);
         }
         const response = await axios.post(
-          "http://127.0.0.1:8000/users/",
+          "http://oarai-school-backend-production-513d.up.railway.app/users/",
           formData,
           {
             headers: {
@@ -170,7 +170,7 @@ export const useApi = create((set, get) => ({
     try {
       const token = localStorage.getItem("token");
 
-      const res = await axios.get("http://127.0.0.1:8000/users/get", {
+      const res = await axios.get("http://oarai-school-backend-production-513d.up.railway.app/users/get", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -208,7 +208,7 @@ export const useApi = create((set, get) => ({
     formData.append("username", username);
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/posts/upload_photo",
+        "http://oarai-school-backend-production-513d.up.railway.app/posts/upload_photo",
         formData,
         {
           headers: {
