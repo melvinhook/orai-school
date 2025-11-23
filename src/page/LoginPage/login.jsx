@@ -4,11 +4,13 @@ import Register from "./components/register";
 import LoginR from "./components/login";
 import CompleteAccount from './components/completeAccount';
 import RegisterCompleted from './components/registerCompleted'; 
-import Sakura from './assets/sakura.png'
+import Sakura from './assets/sakura.png' 
+import { useNavigate } from 'react-router-dom';
 import { useSpring, animated } from '@react-spring/web';
 import './login.css'
 import { useEffect } from 'react';
-export default function Login() {
+export default function Login() { 
+    const navigate=useNavigate()
     const {
         setislogin,
         islogin,
@@ -39,7 +41,7 @@ export default function Login() {
                                 opacity: 0
                             },
                             onRest: () => {
-                                window.location.href = "/Home";
+                                navigate('/')
                             }
                         })
                     }, 4000);
