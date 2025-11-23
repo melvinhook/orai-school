@@ -13,8 +13,7 @@ export const useApi = create((set, get) => ({
       const res = await fetch("https://oarai-school-backend-production-513d.up.railway.app/get_current_user", {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
+          "X-Custom-Auth": `Bearer ${token}`,
         },
         credentials: "include",
       });
