@@ -12,13 +12,12 @@ export const useApi = create((set, get) => ({
       }
       const res = await fetch("https://oarai-school-backend-production-513d.up.railway.app/users/get_current_user", {
         method: "GET",
-        headers: { 
+        headers: {
           Authorization: `Bearer ${token}`,
-          "X-Custom-Auth": `Bearer ${token}` 
+          "X-Custom-Auth": `Bearer ${token}`
         },
-        credentials: "include", 
-        
-      }); 
+        credentials: "include",
+      });
       console.log("TOKEN SENT:", token)
       if (!res.ok) {
         const errorText = await res.text();
@@ -77,7 +76,6 @@ export const useApi = create((set, get) => ({
         })
         set({ isloading: false })
         set({ isloggedin: true })
-        localStorage.setItem("token", res.data.access_token)
         console.log("=== LOGIN RESPONSE ===");
         console.log(res.data);
         console.log("LOGIN SUCCESFULL")
