@@ -10,7 +10,7 @@ export const useApi = create((set, get) => ({
         console.error("No token found in localStorage");
         return null;
       }
-      const res = await fetch("https://oarai-school-backend-production-513d.up.railway.app/get_current_user", {
+      const res = await fetch("https://oarai-school-backend-production-513d.up.railway.app/users/get_current_user", {
         method: "GET",
         headers: {
           "X-Custom-Auth": `Bearer ${token}`,
