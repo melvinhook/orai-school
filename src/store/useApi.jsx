@@ -23,10 +23,11 @@ export const useApi = create((set, get) => ({
         return null;
       }
       const data = await res.json();
-      console.log(data)
+      console.log("=== CURRENT USER RESPONSE ===");
+      console.log(res.data);
       return data;
     } catch (error) {
-      console.error("Error fetching user:", error.message || error);
+      console.error("❌ FAILED TO FETCH CURRENT USER:", error.response?.data || error);
       return null;
     }
   },
@@ -62,6 +63,7 @@ export const useApi = create((set, get) => ({
     const temp = []
     if (username !== '' && password !== '') {
       try {
+        console.log("=== LOGIN REQUEST ===");
         temp.length = 0
         set({ lempty: temp })
         const formData = new URLSearchParams()
@@ -73,11 +75,13 @@ export const useApi = create((set, get) => ({
         set({ isloading: false })
         set({ isloggedin: true })
         localStorage.setItem("token", res.data.access_token)
+        console.log("=== LOGIN RESPONSE ===");
+        console.log(res.data);
         console.log("LOGIN SUCCESFULL")
       } catch (error) {
         set({ isloading: false })
         set({ isloginerror: true })
-        console.error("Login failed:", error.response?.data || error.message)
+        console.error("❌ LOGIN FAILED:", error.response?.data || error);
         get().addToLempty(['username', 'password'])
       }
     } else {
