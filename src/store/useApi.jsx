@@ -59,44 +59,55 @@ export const useApi = create((set, get) => ({
     const response = await axios.get("/testimonials.json")
     return response.data
   },
-  login: async (username, password) => {
-    set({ isloading: true })
-    set({ isloginerror: false })
-    const temp = []
-    if (username !== '' && password !== '') {
-      try {
-        console.log("=== LOGIN REQUEST ===");
-        temp.length = 0
-        set({ lempty: temp })
-        const formData = new URLSearchParams()
-        formData.append("username", username)
-        formData.append("password", password)
-        const res = await axios.post("https://oarai-school-backend-production-513d.up.railway.app/jwtlogin/", formData, {
-          headers: { "Content-Type": "application/x-www-form-urlencoded" }
-        })
-        set({ isloading: false })
-        set({ isloggedin: true })
-        console.log("=== LOGIN RESPONSE ===");
-        console.log(res.data);
-        console.log("LOGIN SUCCESFULL")
-      } catch (error) {
-        set({ isloading: false })
-        set({ isloginerror: true })
-        console.error("❌ LOGIN FAILED:", error.response?.data || error);
-        get().addToLempty(['username', 'password'])
-      }
-    } else {
-      set({ isloading: false })
-      set({ lerrormessage: "Complete the form!" })
-      if (username === '') {
-        temp.push('username')
-      }
-      if (password === '') {
-        temp.push('password')
-      }
+login: async (username, password) => {
+  set({ isloading: true })
+  set({ isloginerror: false })
+  const temp = []
+
+  if (username !== '' && password !== '') {
+    try {
+      console.log("=== LOGIN REQUEST ===");
+      temp.length = 0
       set({ lempty: temp })
+
+      const formData = new URLSearchParams()
+      formData.append("username", username)
+      formData.append("password", password)
+
+      const res = await axios.post(
+        "https://oarai-school-backend-production-513d.up.railway.app/jwtlogin/",
+        formData,
+        {
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          withCredentials: true  // ✔ COOKIE JWT MASUK KE BROWSER
+        }
+      )
+
+      set({ isloading: false })
+      set({ isloggedin: true })
+
+      console.log("=== LOGIN RESPONSE ===");
+      console.log(res.data)
+      console.log("LOGIN SUCCESSFUL ✔")
+
+    } catch (error) {
+      set({ isloading: false })
+      set({ isloginerror: true })
+      console.error("❌ LOGIN FAILED:", error.response?.data || error)
+      get().addToLempty(['username', 'password'])
     }
-  },
+
+  } else {
+    set({ isloading: false })
+    set({ lerrormessage: "Complete the form!" })
+
+    if (username === '') temp.push('username')
+    if (password === '') temp.push('password')
+
+    set({ lempty: temp })
+  }
+},
+
   addToLempty: (newItems) => set((state) => ({ lempty: [...state.lempty, ...newItems], })),
   changeToCompletion: () => {
     set({ iscompleteaccount: true })
