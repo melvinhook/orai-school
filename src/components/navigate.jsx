@@ -59,8 +59,8 @@ export default function Navigate({ role }) {
                         {data ? (
                             <div className="flex items-center space-x-3">
                                 <div className="rounded-full h-10 w-10 bg-gray-300 overflow-hidden">
-                                    {data.profile_photo ? (
-                                        <img src={data.profile_photo} alt="Profile" className="h-full w-full object-cover" />
+                                    {data.img ? (
+                                        <img src={data.img} alt="Profile" className="h-full w-full object-cover" />
                                     ) : (
                                         <CiUser className="h-full w-full p-1" size={30} />
                                     )}
