@@ -3,36 +3,31 @@ import axios from 'axios';
 import { pageController } from './pageController';
 import { postApi } from './postApi';
 export const useApi = create((set, get) => ({
-  getUser: async () => {
-    try {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        console.error("No token found in localStorage");
-        return null;
-      }
-      const res = await fetch("https://oarai-school-backend-production-513d.up.railway.app/users/get_current_user", {
+getUser: async () => {
+  try {
+    const res = await fetch(
+      "https://oarai-school-backend-production-513d.up.railway.app/users/get_current_user",
+      {
         method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "X-Custom-Auth": `Bearer ${token}`
-        },
-        credentials: "include",
-      });
-      console.log("TOKEN SENT:", token)
-      if (!res.ok) {
-        const errorText = await res.text();
-        console.error("Failed to fetch user:", res.status, errorText);
-        return null;
+        credentials: "include"  // COOKIE JWT KIRIM OTOMATIS
       }
-      const data = await res.json();
-      console.log("=== CURRENT USER RESPONSE ===");
-      console.log(res.data);
-      return data;
-    } catch (error) {
-      console.error("❌ FAILED TO FETCH CURRENT USER:", error.response?.data || error);
+    );
+
+    if (!res.ok) {
+      console.error("Failed:", res.status);
       return null;
     }
-  },
+
+    const data = await res.json();
+    console.log("USER:", data);
+    return data;
+
+  } catch (err) {
+    console.error("Error:", err);
+    return null;
+  }
+},
+
   posttest: async (contents) => {
     try {
       response = await axios.post("https://oarai-school-backend-production-513d.up.railway.app/test", {
