@@ -65,7 +65,7 @@ export default function Navigate({ role }) {
                                         <CiUser className="h-full w-full p-1" size={30} />
                                     )}
                                 </div>
-                                <h1>{`${data.firstname} ${data.lastname}`}</h1>
+                                <h1>{`${data.first_name} ${data.last_name}`}</h1>
                             </div>
                         ) : (
                             <h1><span onClick={()=>backToLogin('login')} className='text-[#3791E7] cursor-pointer'>Login</span> || <span onClick={()=>backToLogin('register')} className='text-[#3791E7] cursor-pointer'>Register</span></h1>
