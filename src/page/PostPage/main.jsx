@@ -114,7 +114,7 @@ export default function postPage() {
                                             {
                                                 userz ?
                                                     (
-                                                        <img src={userz?.profile_photo} alt="" className="h-full w-full object-cover rounded-full" />
+                                                        <img src={userz?.img} alt="" className="h-full w-full object-cover rounded-full" />
                                                     ) :
                                                     (
                                                         <img src={User} alt="" className="h-full w-full object-cover rounded-full" />
